@@ -23,14 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 
-function isEmptyObject(obj) {
-	for (var key in obj) {
-		if (Object.prototype.hasOwnProperty.call(obj, key)) {
-			return false;
-		}
-	}
-	return true;
-}
 
 app.post('/fileupload', (req, res , next) => {
 	uploadImage(req, res , (err) =>  {
@@ -85,8 +77,8 @@ app.post('/fileupload', (req, res) => {
 	}	
 });
 
-app.get('/map/:lon/:lat/12', (req, res) => {
-	res.render("map",{corrd:{lon : req.params.lon, lat : req.params.lat}});
+app.get('/map/:lon/:lat/:zoom', (req, res) => {
+	res.render("map",{corrd:{lon : req.params.lon, lat : req.params.lat,zoom: req.params.zoom}});
 });
 
 app.get('/*', (req, res) => {
