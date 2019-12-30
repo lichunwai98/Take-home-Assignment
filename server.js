@@ -81,6 +81,10 @@ app.get('/map/:lon/:lat/:zoom', (req, res) => {
 	res.render("map",{corrd:{lon : req.params.lon, lat : req.params.lat,zoom: req.params.zoom}});
 });
 
+app.get('/map/:lon/:lat', (req, res) => {
+	res.render("map",{corrd:{lon : req.params.lon, lat : req.params.lat,zoom: 12}});
+});
+
 app.get('/*', (req, res) => {
 	res.render("main");
 });
