@@ -63,7 +63,7 @@ app.post('/fileupload', (req, res) => {
 					if(exifData.gps.GPSLatitudeRef == "S") {
 						lat = lat * -1
 					}
-					if(exifData.gps.GPSLatitudeRef == "W") {
+					if(exifData.gps.GPSLongitudeRef == "W") {
 						lon = lon * -1
 					}
 					docObj['lat'] = lat;
